@@ -64,7 +64,8 @@ int main() {
 // }
 
 __global__ void flash_attn(const float* Q_global, const float* K_global, int seq_len) {
-    // one block from start to finish (M, N) QK^T matrix
+    // one block takes (M, H) queries and produces T / N of (M, N) patches. So one block computes a (M, T) of scores total. 
+    // Later it uses the (M, T) total to compute (M, H) of out.
     __shared__ float Q_shared[M][H];
     __shared__ float K_shared[N][H];
     __shared__ float S_shared[M][N];
@@ -137,5 +138,7 @@ __global__ void flash_attn(const float* Q_global, const float* K_global, int seq
             }
         }
         __syncthreads();
+
+        // right now (M, N) is in S_shared
     }
 }

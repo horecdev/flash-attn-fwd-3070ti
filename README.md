@@ -30,7 +30,7 @@ I used CUDA Events, 100-step warmup / 1000-step test.
 
 ## Takeaway
 Tiling works and the output matches PyTorch math on `fp32` to a max abs diff of `0.000000`.   
-Math SDPA is close to 4x faster and Flash is **destroyed me** by almost 24x (damn). 
+Math SDPA is close to 4x faster and Flash **destroyed me** by almost 24x (damn). 
 
 ## Run
 ```powershell

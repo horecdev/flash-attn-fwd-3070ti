@@ -16,10 +16,11 @@ This is the real thing that gapped my tiled version by a factor of over `20x`. I
 ### Measurements
 I checked correctness against math `fp32` and timed all three. Both flash and math PyTorch cooked me.
 
-## Benchmark
+## Benchmark!!!
 **Hardware:** RTX 3070 Ti  
 **Tensor Dimensions:** `batch = 1`, `num_heads = 1`, `T = 4096`, `H = 64`, 
 I used CUDA Events, 100-step warmup / 1000-step test.  
+
 
 | Kernel | Time (ms) | vs tiled | Max diff vs PyTorch FP32 |
 | :--- | :--- | :--- | :--- |
